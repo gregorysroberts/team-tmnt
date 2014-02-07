@@ -22,7 +22,12 @@ angular.module('teamTmntApp', [
     })
     .state('team', {
       url: "/team/:teamId",
-      templateUrl: "templates/team.html",
-      controller: 'TeamCtrl'
-    })
+      templateUrl: "views/teamview.html",
+      controller: 'TeamCtrl',
+      resolve:  {
+        'team': function($stateParams, TurtleService) {
+          return TurtleService.getTeam($stateParams.teamId);
+          }
+        }
+      });
     });
