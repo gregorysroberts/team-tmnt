@@ -3,10 +3,9 @@
 angular.module('teamTmntApp')
   .directive('dvColor', function () {
     return {
-      template: '<div></div>',
-      restrict: 'E',
+      restrict: 'A',
       link: function postLink(scope, element, attrs) {
-        element.text('this is the dvColor directive');
+        element.css('color', attrs.dvColor);
       }
     };
   });
